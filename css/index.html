@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #0b1120;
+            color: white;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            text-align: center;
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3a63f1, #5d8fff);
+            opacity: 0.2;
+            filter: blur(40px);
+            animation: float 10s infinite ease-in-out alternate;
+        }
+
+        .bubble:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .bubble:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            left: 10%;
+            animation-delay: 2s;
+        }
+
+        .bubble:nth-child(3) {
+            width: 250px;
+            height: 250px;
+            top: 20%;
+            right: 10%;
+            animation-delay: 1s;
+        }
+
+        .bubble:nth-child(4) {
+            width: 180px;
+            height: 180px;
+            bottom: 5%;
+            right: 20%;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(0px);
+            }
+
+            to {
+                transform: translateY(-30px);
+            }
+        }
+
+        .content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .content h2 {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        .content h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            letter-spacing: 4px;
+        }
+
+        .countdown {
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .time-box {
+            text-align: center;
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 2.2rem;
+            font-weight: bold;
+        }
+
+        .time-box label {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        @media (max-width: 600px) {
+            .content h1 {
+                font-size: 2.5rem;
+            }
+
+            .countdown {
+                font-size: 1.2rem;
+            }
+
+            .time-box span {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Animated Bubbles -->
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+
+    <div class="content">
+        <h2>Something great is on the way</h2>
+        <h1>COMING SOON</h1>
+        <div class="countdown" id="countdown">
+            <div class="time-box"><span id="days">00</span><label>Days</label></div>
+            <div class="time-box"><span id="hours">00</span><label>Hours</label></div>
+            <div class="time-box"><span id="minutes">00</span><label>Mins</label></div>
+            <div class="time-box"><span id="seconds">00</span><label>Secs</label></div>
+        </div>
+    </div>
+
+    <script>
+        // Set launch date (YYYY, MM-1, DD)
+        const launchDate = new Date("2025-08-01T00:00:00").getTime();
+
+        const countdown = () => {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = String(days).padStart(2, '0');
+            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+
+            if (distance < 0) {
+                document.getElementById("countdown").innerHTML = "<p>We're live now!</p>";
+            }
+        };
+
+        setInterval(countdown, 1000);
+    </script>
+
+</body>
+
+</html>

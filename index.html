@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Naiminath College</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <script src="./districtData.js"></script>
+
+</head>
+
+<body>
+
+    <div id="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7 pt-5">
+                    <div class="d-sm-flex logo">
+                        <div class="d-inline pr-3"><img src="images/logo.png" /></div>
+                        <div class="d-inline  pr-3"><img
+                                src="https://naiminath.org/wp-content/uploads/2020/08/nabh-consultancy-500x500-1.png"
+                                width="80" /></div>
+                        <div class="d-block d-sm-inline mt-3 mt-sm-0">
+                            <h4>Naiminath Homoeopathic <br />Medical College<small>Established Since 2008
+                                </small></h4>
+                        </div>
+                    </div>
+                    <h1 class="mb-1">ADMISSION OPEN</h1>
+                    <h2>Direct BHMS admission for <strong>NEET</strong> qualified aspirants</h2>
+                    <div class="d-flex logo logo2">
+                        <div class="pr-3"><img src="images/ayushlogo.jpg" class="circlelogo" width="100" /></div>
+                        <div>
+                            <h4>
+                                <small>Recognized By</small>
+                                Ministry of AYUSH<br />Govt. of India &amp; CCH, New Delhi
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="d-flex logo logo2 mt-3">
+                        <div class="pr-3"><img src="images/mggau.png" class="circlelogo" width="100" /></div>
+                        <div>
+                            <h4>
+                                <small>Affiliated to</small>
+                                Mahayogi Guru Gorakhnath AYUSH University<br />Gorakhpur, U.P
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <!-- <div id="formsID7375" class="col-sm-5">
+
+                </div> -->
+
+                    <form id="enquiryForm">
+                        <input type="text" name="name" placeholder="Name *" required />
+                        <div class="flex-row">
+                            <input type="email" name="email" placeholder="Email Address *" required />
+
+                            <input type="tel" name="number" placeholder="Mobile Number *" required />
+                        </div>
+
+                        <select id="state" required>
+                            <option value="">Select State *</option>
+                        </select>
+
+                        <select name="district" id="district" required>
+                            <option value="">Select District *</option>
+                        </select>
+
+
+                        <select name="course" required>
+                            <option value="">Select Course</option>
+                            <option value="MBBS">MBBS</option>
+                            <option value="BDS">BDS</option>
+                            <option value="BAMS">BAMS</option>
+                            <option value="BHMS">BHMS</option>
+                            <option value="B.Sc. Nursing">B.Sc. Nursing</option>
+                            <option value="BPT">BPT</option>
+                            <option value="B.Pharm">B.Pharm</option>
+                            <option value="D.Pharm">D.Pharm</option>
+                            <option value="B.Sc. (Home Science)">B.Sc. (Home Science)</option>
+                        </select>
+
+                        <input type="number" name="neetScore" placeholder="NEET Score" required />
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" required />
+                            <p>I agree to receive information regarding my submitted enquiry by signing up on Naiminath
+                                Ayurvedic Medical College. See our <a href="#" target="_blank">Privacy Policy</a>.</p>
+                        </div>
+
+                        <button type="submit">Submit</button>
+                    </form>
+                    <!-- <div class="form">
+                        <div class="contact-info">
+                            <div class="d-flex mb-1">
+                                <div class="pr-2"><i class="las la-phone-volume"></i></div>
+                                <div class=""><strong>+91-9528024473</strong></div>
+                            </div>
+                            <div class="d-flex mb-0">
+                                <div class="pr-2"><i class="las la-envelope"></i></div>
+                                <div class=""><strong>info@naiminath.org</strong></div>
+                            </div>
+                        </div>
+                        <h4>APPLY NOW</h4>
+
+                        <div class="main-form">
+                            <form action="mymail.php" method="post">
+                                <div class="form-group"><input type="text" name="name" required class="form-control"
+                                        placeholder="Your Name" /></div>
+                                <div class="form-group"><input type="email" name="email" required class="form-control"
+                                        placeholder="Email" /></div>
+                                <div class="form-group"><input type="number" name="mobile" required class="form-control"
+                                        placeholder="Mobile Number" /></div>
+                                <div class="form-group"><input type="number" name="marks" required class="form-control"
+                                        placeholder="Marks Obtained" /></div>
+                                <div class="form-group"><textarea name="message" class="form-control"
+                                        placeholder="Address"></textarea></div>
+                                <div class="form-group"><input type="submit" value="SUBMIT" /></div>
+                            </form>
+                        </div>
+
+
+
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class=" courses">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-5">
+                    <img src="images/bhms.png" class="img-fluid" />
+                </div>
+                <div class="col-sm-7">
+                    <small>Courses offered</small>
+                    <h2>BHMS</h2>
+                    <h5>Level – Graduate Duration – 4.5 years</h5>
+                    <p class="lead">
+                        The BHMS programme at Naiminath aims at imparting quality education and training to students
+                        to
+                        help them in contributing to the growth of the health and medicine sector.
+                    </p>
+                    <p>
+                        Bachelor in Homoeopathic of Medicine and Surgery (B.H.M.S.), a 4.5 year course + 1-year
+                        internship
+                        recognized by Dept. of AYUSH Department, Govt. of India, New Delhi, Central Council of
+                        Homoeopathy, Govt. of India, New Delhi &amp; AYUSH department Govt. of U.P., Lucknow and is
+                        affiliated Dr. B. R. Ambedkar University, Agra.
+                    </p>
+                    <p class="lead"><strong>Career path you can choose after the course</strong></p>
+                    <ul class="list">
+                        <li><i class="lar la-circle"></i>Medical Doctor</li>
+                        <li><i class="lar la-circle"></i>Physician</li>
+                        <li><i class="lar la-circle"></i>Medical Officer</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- apply section -->
+    <section class="apply-section">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-7">
+                    <small>Admission Procedure</small>
+                    <h2>How to apply</h2>
+                    <h4>For students who want to apply for BHMS course</h4>
+                    <p class="text-justify">What after NEET 2020 dilemma of most students is solved and thanks to
+                        the
+                        private college seats
+                        since the domicile requirements are less stringent and students can apply to these seats in
+                        most
+                        states
+                        of their choice. All candidates throughout the country who qualify NEET 2020 can apply for
+                        the
+                        seats
+                        in Naiminath Homoeopathic Medical College, irrespective of their domicile, caste or state of
+                        residence, by filling the application forms of respective state counselling authorities. The
+                        same state
+                        counselling authorities which conduct the counselling for state quota seats conduct the
+                        counselling for
+                        private colleges as well. While some states have already begun their application process,
+                        most
+                        of them
+                        will release the NEET 2020 state counselling applications (for private colleges) after NEET
+                        result is
+                        declared.</p>
+
+                </div>
+                <div class="col-sm-5">
+                    <img src="images/photogallery/14.jpg" class="img-fluid rounded">
+                </div>
+            </div>
+            <p class="lead font-bold">
+                Naiminath Homoeopathic Medical College, Hospital and Research Centre, Agra is a Minority
+                Institution recognized by Government of India as well as Government of Uttar Pradesh. There
+                are multiple ways for aspirants who wish to take admission in this college, they are –
+            </p>
+            <ul class="list">
+                <li><i class="lar la-circle"></i>Through AIQ Scheme</li>
+                <li><i class="lar la-circle"></i>Through UP AYUSH State Counselling</li>
+            </ul>
+            <div class="cta">
+                <p class="lead">For admission in the session 2020-21 kindly contact the College –</p>
+                <ul class="list">
+                    <li>Mail us at <a href="mailto:info@naiminath.org">info@naiminath.org</a> , <a
+                            href="mailto:nhmcagra@gmail.com">nhmcagra@gmail.com</a></li>
+                    <li>Contact us on <a href="tel:9528024473">91-9528024473</a> , <a
+                            href="tel:8193896315">8193896315</a></li>
+                </ul>
+            </div>
+
+            <div class="pricing">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                            <th>BHMS</th>
+                            <th>1<sup>st</sup> Year</th>
+                            <th>2<sup>st</sup> Year</th>
+                            <th>3<sup>st</sup> Year</th>
+                            <th>4<sup>st</sup> Year</th>
+                        </tr>
+                        <tr>
+                            <th>Tuition Fee</th>
+                            <td>Rs. 2,00,000</td>
+                            <td>Rs. 2,00,000</td>
+                            <td>Rs. 2,00,000</td>
+                            <td>Rs. 2,00,000</td>
+                        </tr>
+                        <tr>
+                            <th>Processing Fee (one–time)</th>
+                            <td>Rs. 10,000</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Examination Fee
+                                (External &amp; Internal)
+                            </th>
+                            <td>Rs. As per University</td>
+                            <td>Rs. As per University</td>
+                            <td>Rs. As per University</td>
+                            <td>Rs. As per University</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- <section class="why">
+        <div class="container">
+            <h2>Why Naiminath?</h2>
+            <p class="lead">
+                Which college to choose to pursue BHMS Course is the dilemma almost every medical
+                aspirant faces after the NEET qualification.
+            </p>
+            <p class="lead">
+                Naiminath prides itself on being the pioneer for multiple unique practices and initiatives
+                which separates this college from other colleges. Some of the salient points are
+            </p>
+            <div class="mt-5 mb-5">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <h3>Indoor Patient Department</h3>
+                        <p>
+                            Naiminath Homoeopathic Medical College is the only Homoeopathic Institution in the World
+                            where regular IPD cases are admitted. In a scenario where most Homoeopathic Institutions do
+                            not understand or practice the concept of IPD in Homoeopathy, Naiminath College regularly
+                            admits and treats very serious or emergency cases only by Homoeopathy. This practice is
+                            widely documented and is also presented on the Facebook and YouTube profiles of College.
+                        </p>
+                    </div>
+                    <div class="col-sm-5">
+                        <img src="images/img1.jpg" class="img-fluid rounded" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-5 mb-5">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <img src="images/img2.jpg" class="img-fluid rounded" />
+                    </div>
+                    <div class="col-sm-7">
+                        <h3>Evidence based and research oriented practice</h3>
+                        <p>
+                            Every step in Naiminath’s OPD and IPD is based on evidence of treatment and is also
+                            research oriented. Research tools have been adopted while recording the case and its
+                            treatment. The college has a state of art research centre where various studies go on to
+                            find
+                            cure of the so called untreatable diseases to uplift humanity. Naiminath College is the
+                            first
+                            and only Homoeopathic Institute to get permission from ICMR, CCRH and Ministry of
+                            AYUSH, New Delhi to conduct a research on Novel Corona virus which has been hugely
+                            successful. The research is widely known and is due to get published in International peer-
+                            reviewed journals.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="mt-5 mb-5">
+                <div class="row">
+
+                    <div class="col-sm-12">
+                        <h3>NABH Accreditation</h3>
+                        <p>
+                            Naiminath Homoeopathic Hospital is the first Homoeopathic Institute of India which has
+                            received NABH accreditation from Quality Council of India. This accreditation is an
+                            evidence of our quality and strives us to achieve and adopt better and modern practices.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="mt-5 mb-5">
+                <div class="row">
+
+                    <div class="col-sm-7">
+                        <h3>Faculty</h3>
+                        <p>
+                            In order to ensure excellent quality training program, the Naiminath Homoeopathic Medical
+                            College boasts of world class faculty, highly qualified and experienced homoeopathic
+                            professionals from all over India and abroad. Naiminath College credits its quality to the
+                            excellent in-house faculty namely Prof. Dr Pradeep Gupta. The college has a strong,
+                            experienced and competent core faculty who possess a rich resource base and expertise in
+                            adopting clinical practices while teaching.
+                        </p>
+                    </div>
+                    <div class="col-sm-5">
+                        <img src="images/img3.jpg" class="img-fluid rounded" />
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5 mb-5">
+                <div class="row">
+
+
+                    <div class="col-sm-5">
+                        <img src="images/img4.jpg" class="img-fluid rounded" />
+                    </div>
+                    <div class="col-sm-7">
+                        <h3>In House Medical Research Pharmacy and Laboratory</h3>
+                        <p>
+                            Naiminath houses a modern and innovative medical research lab wherein medicines are
+                            prepared for treatment. All the medicines including newly invented medicines which are used
+                            in our Hospital are prepared in this Pharmacy. The students are also involved in the
+                            preparation and research of these medicines which aids them in their future practice.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5 mb-5">
+                <div class="row">
+
+
+
+                    <div class="col-sm-7">
+                        <h3>Student Involvement and Student Progression</h3>
+                        <p>
+                            The students in Naiminath College are encouraged to visit the OPD, engage in the OPD
+                            procedures, visit wards in the IPD from the 1st year itself. Naiminath believes in the
+                            practical
+                            training as well along with theoretical training for further enhancement of skill of future
+                            budding doctors.
+                        </p>
+                    </div>
+                    <div class="col-sm-5">
+                        <img src="images/img5.jpg" class="img-fluid rounded" />
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5 mb-5">
+                <div class="row">
+
+
+                    <div class="col-sm-5">
+                        <img src="images/img6.jpg" class="img-fluid rounded" />
+                    </div>
+                    <div class="col-sm-7">
+                        <h3>Super Specialty Hospital</h3>
+                        <p>
+                            Naiminath Super Speciality Hospital is equipped with all the modern facilities. It boasts
+                            state
+                            of the art Operation Theatres, I.C.U, N.I.C.U., Dialysis Unit and advanced technological
+                            equipments. The hospital is a broad platform for the students to avail rich and vast
+                            opportunities to pursue collaborative and interdisciplinary education and independent study
+                            projects in the field of medical education. Naiminath Homoeopathic Medical College offers
+                            medical facilities to all its students, teaching staff and non-teaching staff through
+                            Naiminath
+                            Homoeopathic Hospital and Naiminath Super Speciality Hospital.
+                        </p>
+                        <p>A pioneer in Homoeopathy, Naiminath Homoeopathic Hospital is a preferred destination for
+                            homoeopathic treatment both nationally and internationally. Naiminath Homoeopathic
+                            Hospital prides in being the first NABH accredited Homoeopathic Hospital of India.</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="mt-5 mb-5">
+                <div class="row align-items-center">
+
+                    <div class="col-sm-7">
+                        <h3>Affiliated with Mahayogi Guru Gorakhnath AYUSH University</h3>
+                        <p>
+                            Naiminath Homoeopathic Medical College is officially affiliated with <strong>Mahayogi Guru
+                                Gorakhnath AYUSH University, Gorakhpur</strong> — a premier institution under the
+                            Government of Uttar Pradesh dedicated to excellence in Indian systems of medicine including
+                            Ayurveda, Homoeopathy, Unani, Siddha, Yoga, and Naturopathy.
+                        </p>
+                        <p>
+                            This affiliation ensures that our academic programs follow a government-approved curriculum,
+                            empowering students with recognized qualifications, clinical exposure, and opportunities to
+                            grow in the field of AYUSH healthcare both in India and internationally.
+                        </p>
+                    </div>
+                    <div class="col-sm-5 text-center">
+                        <img src="images/mggau.png" class="img-fluid rounded-circle affiliation-logo-official"
+                            alt="Guru Gorakhnath AYUSH University Logo">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </section> -->
+
+
+    <section class="why enhanced-why py-5 position-relative">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="why-heading">Why <span class="highlight">Choose Naiminath?</span></h2>
+                <p class="lead text-muted">India's leading Homoeopathic college with excellence in research,
+                    education,
+                    and clinical practice.</p>
+                <div class="heading-underline mx-auto"></div>
+            </div>
+
+            <!-- Fancy Background Shapes -->
+            <div class="shape shape1"></div>
+            <div class="shape shape2"></div>
+
+            <div class="why-grid">
+                <!-- IPD -->
+                <div class="why-card">
+                    <img src="images/img1.jpg" alt="IPD" class="why-img" />
+                    <div class="why-content">
+                        <h3>Indoor Patient Department</h3>
+                        <p>Naiminath is the only Homoeopathic Institution globally where regular IPD cases are
+                            admitted
+                            and treated through Homoeopathy. Documented success stories showcase our clinical
+                            excellence.</p>
+                    </div>
+                </div>
+
+                <!-- Research -->
+                <div class="why-card">
+                    <img src="images/img2.jpg" alt="Research" class="why-img" />
+                    <div class="why-content">
+                        <h3>Evidence-Based Research</h3>
+                        <p>Each case is recorded and analyzed using research tools. Naiminath was the first
+                            Homoeopathic
+                            college permitted by ICMR, CCRH, and AYUSH to conduct COVID-19 research.</p>
+                    </div>
+                </div>
+
+                <!-- NABH -->
+                <div class="why-card">
+                    <img src="images/img3.jpg" alt="NABH" class="why-img" />
+                    <div class="why-content">
+                        <h3>NABH Accreditation</h3>
+                        <p>We are the first Homoeopathic Institute in India to receive NABH accreditation, ensuring
+                            top-tier patient care and hospital standards.</p>
+                    </div>
+                </div>
+
+                <!-- Faculty -->
+                <div class="why-card">
+                    <img src="images/img4.jpg" alt="Faculty" class="why-img" />
+                    <div class="why-content">
+                        <h3>World-Class Faculty</h3>
+                        <p>Our faculty includes renowned homoeopathic doctors from across India and abroad,
+                            including
+                            Dr. Pradeep Gupta. They bring real-world experience into the classroom.</p>
+                    </div>
+                </div>
+
+                <!-- Pharmacy -->
+                <div class="why-card">
+                    <img src="images/img5.jpg" alt="Pharmacy" class="why-img" />
+                    <div class="why-content">
+                        <h3>In-House Pharmacy & Lab</h3>
+                        <p>Our advanced pharmacy prepares customized medicines. Students gain direct exposure to
+                            formulation and clinical use, supporting hands-on learning.</p>
+                    </div>
+                </div>
+
+                <!-- Student Involvement -->
+                <div class="why-card">
+                    <img src="images/img6.jpg" alt="Students" class="why-img" />
+                    <div class="why-content">
+                        <h3>Student Engagement</h3>
+                        <p>From the first year, students participate in OPD/IPD activities, gaining valuable
+                            clinical
+                            exposure alongside theoretical learning.</p>
+                    </div>
+                </div>
+
+                <!-- Super Speciality Hospital -->
+                <div class="why-card">
+                    <!-- <img src="images/img7.jpg" alt="Hospital" class="why-img" /> -->
+                    <div class="why-content">
+                        <h3>Super Speciality Hospital</h3>
+                        <p>With ICU, NICU, OTs, and modern technology, our hospital provides a real-world training
+                            ground for future doctors. NABH accreditation sets it apart from the rest.</p>
+                    </div>
+                </div>
+
+                <!-- Affiliation -->
+                <div class="why-card affiliation-card">
+                    <img src="images/mggau.png" alt="Affiliation" class="why-img rounded-circle border border-danger" />
+                    <div class="why-content">
+                        <h3>Affiliated with AYUSH University</h3>
+                        <p>Naiminath is affiliated with <strong>Mahayogi Guru Gorakhnath AYUSH University,
+                                Gorakhpur</strong>, aligning our programs with national AYUSH standards, ensuring
+                            quality and recognition across India.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container page-top">
+        <h2 class="text-center mb-5">Photo Gallery</h2>
+        <div class="row">
+
+            <div class="col-lg-3 col-md-4 col-6 thumb">
+                <a href="images/photogallery/1.jpg" class="fancybox" rel="ligthbox">
+                    <img src="images/photogallery/1.jpg" class="zoom img-fluid " alt="">
+
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 thumb">
+                <a href="images/photogallery/2.jpg" class="fancybox" rel="ligthbox">
+                    <img src="images/photogallery/2.jpg" class="zoom img-fluid " alt="">
+
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 thumb">
+                <a href="images/photogallery/3.jpg" class="fancybox" rel="ligthbox">
+                    <img src="images/photogallery/3.jpg" class="zoom img-fluid " alt="">
+
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 thumb">
+                <a href="images/photogallery/4.jpg" class="fancybox" rel="ligthbox">
+                    <img src="images/photogallery/4.jpg" class="zoom img-fluid " alt="">
+
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 thumb">
+                <a href="images/photogallery/5.jpg" class="fancybox" rel="ligthbox">
+                    <img src="images/photogallery/5.jpg" class="zoom img-fluid " alt="">
+
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 thumb">
+                <a href="images/photogallery/6.jpg" class="fancybox" rel="ligthbox">
+                    <img src="images/photogallery/6.jpg" class="zoom img-fluid " alt="">
+
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 thumb">
+                <a href="images/photogallery/7.jpg" class="fancybox" rel="ligthbox">
+                    <img src="images/photogallery/7.jpg" class="zoom img-fluid " alt="">
+
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 thumb">
+                <a href="images/photogallery/8.jpg" class="fancybox" rel="ligthbox">
+                    <img src="images/photogallery/8.jpg" class="zoom img-fluid " alt="">
+
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 thumb">
+                <a href="images/photogallery/9.jpg" class="fancybox" rel="ligthbox">
+                    <img src="images/photogallery/9.jpg" class="zoom img-fluid " alt="">
+
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 thumb">
+                <a href="images/photogallery/10.jpg" class="fancybox" rel="ligthbox">
+                    <img src="images/photogallery/10.jpg" class="zoom img-fluid " alt="">
+
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 thumb">
+                <a href="images/photogallery/11.jpg" class="fancybox" rel="ligthbox">
+                    <img src="images/photogallery/11.jpg" class="zoom img-fluid " alt="">
+
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 thumb">
+                <a href="images/photogallery/12.jpg" class="fancybox" rel="ligthbox">
+                    <img src="images/photogallery/12.jpg" class="zoom img-fluid " alt="">
+
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 thumb">
+                <a href="images/photogallery/13.jpg" class="fancybox" rel="ligthbox">
+                    <img src="images/photogallery/13.jpg" class="zoom img-fluid " alt="">
+
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 thumb">
+                <a href="images/photogallery/14.jpg" class="fancybox" rel="ligthbox">
+                    <img src="images/photogallery/14.jpg" class="zoom img-fluid " alt="">
+
+                </a>
+            </div>
+
+
+
+
+
+        </div>
+
+
+    </div>
+
+    <section class="applynow">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h2>10 Year Excellence</h2>
+                    <p>Apply Now and Create your Future</p>
+                </div>
+                <div class="col-sm-4">
+                    <a href="#banner">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="floating-buttons">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/919528024473" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">
+            <i class="lab la-whatsapp"></i>
+        </a>
+        <!-- Phone Call Button -->
+        <a href="tel:9528024473" class="phone-btn" title="Call Us">
+            <i class="las la-phone"></i>
+        </a>
+    </div>
+
+
+
+
+
+    <script type="module" src="https://ntechzy.in/api/v1/student-form/form.js"
+        path="[ &quot;/BHMS-Admission/&quot;, &quot;/index.html&quot;]" courses="[&quot;BAMS&quot;]" styles="basic"
+        logo="/images/logo.png" divid="formsID7375" contact="9528024473"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".fancybox").fancybox({
+                openEffect: "none",
+                closeEffect: "none"
+            });
+
+            $(".zoom").hover(function () {
+
+                $(this).addClass('transition');
+            }, function () {
+
+                $(this).removeClass('transition');
+            });
+        });
+
+
+    </script>
+
+
+    <script type="module">
+        import { districtData } from './districtData.js';
+
+
+        const stateSelect = document.getElementById("state");
+        const districtSelect = document.getElementById("district");
+
+        districtData.states.forEach(({ state }) => {
+            const option = document.createElement("option");
+            option.value = state;
+            option.textContent = state;
+            stateSelect.appendChild(option);
+        });
+
+        stateSelect.addEventListener("change", (e) => {
+            const selected = e.target.value;
+            const state = districtData.states.find(s => s.state === selected);
+            districtSelect.innerHTML = '<option value="">Select District *</option>';
+            if (state) {
+                state.districts.forEach(district => {
+                    const opt = document.createElement("option");
+                    opt.value = district;
+                    opt.textContent = district;
+                    districtSelect.appendChild(opt);
+                });
+            }
+        });
+
+
+        const sendCAPI = async (formData) => {
+            const pixelId = '590749463716159';
+            const accessToken = 'EAAPkZBdU6rycBPLoWdyklMeklShfOY5LtC8c8VTShpGsx1sKg1NqMjy7e9Q62qQ5qeXxRsrOZBKyZBw5ZAKKe3gZC5UP23tO72PambeOSIeLqJUSeaPxHnJFuItOIxx3LwRB2XvQuTTHDQ6scAqcqNu3jk6cZCirKzLYAoB56gflaZAAzKZAb79pppWD0JApnQZDZD';
+
+
+            const firstName = formData.name.split(' ')[0] || '';
+            const lastName = formData.name.split(' ')[1] || '';
+
+            const payload = {
+                event_name: 'Lead',
+                event_time: Math.floor(Date.now() / 1000),
+                action_source: 'website',
+                event_source_url: window.location.href,
+                event_id: 'lead-' + Date.now(),
+                user_data: {
+                    em: [await sha256(formData.email)],
+                    ph: [await sha256(formData.phone)],
+                    fn: [await sha256(firstName)],
+                    ln: [await sha256(lastName)],
+                },
+                custom_data: {
+                    currency: 'INR',
+                    value: 0,
+                },
+            };
+
+            try {
+                const res = await fetch(`https://graph.facebook.com/v19.0/${pixelId}/events?access_token=${accessToken}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ data: [payload] }),
+                });
+
+                const result = await res.json();
+            } catch (err) {
+                console.error('CAPI Error:', err);
+            }
+        };
+
+        document.getElementById("enquiryForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+
+            const payload = {
+                name: formData.get("name"),
+                email: formData.get("email"),
+                contactNumber: formData.get("number"),
+                state: stateSelect.value,
+                district: formData.get("district"),
+                courseSelected: formData.get("course"),
+                neetScore: formData.get("neetScore"),
+                source: "naiminath.org",
+                sourceId: "https://naiminath.org/BHMS-Admission/"
+            };
+
+            await sendCAPI(payload)
+
+            try {
+                const res = await axios.post("https://lms.ntechzy.in/api/v1/form", payload);
+                if (res.data.success) {
+                    alert("Form Submitted Successfully!");
+                    e.target.reset();
+                } else {
+                    alert("Failed to submit.");
+                }
+            } catch (err) {
+                alert("Error: " + err.message);
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
